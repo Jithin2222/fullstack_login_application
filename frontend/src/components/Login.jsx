@@ -1,16 +1,29 @@
 import React from 'react'
 import {loginUser} from '../services/userServices';
+import {useNavigate} from 'react-router-dom';
 import './auth.css';
 
 const Login = () => {
 
+    const navigate = useNavigate();
+
     const login=async(e)=>{
         e.preventDefault();
-        const res = await loginUser({
-            email: e.target.email.value,
-            password: e.target.password.value,
-        })
-        alert(res.data.message);
+
+        try {
+            const res = await loginUser({
+                email: e.target.email.value,
+                password: e.target.password.value,
+            })
+            alert(res.data.message);
+
+            localStorage.setItem("user", JSON.stringify(res.data));
+
+            navigate("/dashboard");
+        } catch (error) {
+            alert("Invalid credential!")
+        }
+        
     }
 
     return (

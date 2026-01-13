@@ -1,17 +1,21 @@
 import React from 'react'
 import {registerUser} from "../services/userServices";
+import {useNavigate} from "react-router-dom";
 import './auth.css';
 
 const Register = () => {
 
+    const navigate = useNavigate();
+
     const submit=async(e)=>{
-        e.prevenetDefault();
+        e.preventDefault();
         await registerUser({
             username: e.target.username.value,
             email: e.target.email.value,
             password: e.target.password.value,
         });
-        alert("User Registered!")
+        alert("User Registered!");
+        navigate("/login");
     }
 
     return (

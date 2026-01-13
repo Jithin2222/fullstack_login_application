@@ -1,0 +1,102 @@
+/* Glass navbar container */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 30px;
+
+    background: rgba(255, 255, 255, 0.575);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.2rem;
+    font-style: bold;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 0.5px;
+}
+
+/* Links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* Nav links */
+.nav-links a {
+    color: rgba(0, 0, 0, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+/* Underline animation */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #a095ff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Logout glass button */
+.logout-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 14px;
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+
+    background: rgba(255, 255, 255, 0.14);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+    transition: all 0.25s ease;
+}
+
+/* Logout hover (soft red glow) */
+.logout-btn:hover {
+    background: rgba(248, 113, 113, 0.18);
+    box-shadow:
+        0 0 12px rgba(248, 113, 113, 0.45),
+        0 8px 22px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Tap effect */
+.logout-btn:active {
+    transform: scale(0.95);
+}
